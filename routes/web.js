@@ -5,6 +5,8 @@ const router = express.Router()
 // usercontroller 
 router.get('/getalluser',UserController.getalluser)
 router.post('/userinsert',UserController.userinsert)
+router.get('/getuserdetails',UserController.getuserdetails)
+router.get('/verifylogin',UserController.verifylogin)
 
 
 

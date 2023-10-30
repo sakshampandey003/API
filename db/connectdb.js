@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const connectdb = () => {
-   return mongoose.connect(process.env.LOCAL_URL)
+   return mongoose.connect(process.env.LIVE_URL)
       .then(() => {
          console.log('connection succesfully')
       }).catch((error) => {
