@@ -1,5 +1,6 @@
 const UserModel = require("../models/User");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 const cloudinary = require("cloudinary").v2;
 
 cloudinary.config({
@@ -25,21 +26,7 @@ class UserController {
             console.log(error);
         }
     }
-    static getuserdetails = async (req, res) => {
-        try {
-            const { id, name, email } = req.data1
-            const user = await UserModel.findById(id)
-            // console.log(user)
-            res.status(201).json({
-                status: 'success',
-                message: 'successfull',
-                user,
-            })
-            res.send('hello user')
-        } catch (error) {
-            console.log(error);
-        }
-    }
+
 
     static userinsert = async (req, res) => {
         try {
@@ -106,7 +93,7 @@ class UserController {
                 if (user != null) {
                     const isMatched = await bcrypt.compare(password, user.password)
                     if (isMatched) {
-                        const token = jwt.sign({ ID: user._id }, 'kanchangangil@1234');
+                        const token = jwt.sign({ ID: user._id }, 'rahul12345sign');
                         // console.log(token)
                         res.cookie('token', token)
                         res.status(201).json({
@@ -134,6 +121,21 @@ class UserController {
             console.log(err);
         }
     }
+
+    // static getuserdetails = async (req, res) => {
+    //     try {
+    //         const user = await UserModel.find()
+    //         // console.log(user)
+    //         res.status(201).json({
+    //             status: 'success',
+    //             message: 'successfull',
+    //             user,
+    //         })
+    //         res.send('hello user')
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
     // static logout = async (req, res) => {
     //     try {
     //       res.cookie('token', null, {
