@@ -4,10 +4,10 @@ const jwt = require('jsonwebtoken');
 const cloudinary = require("cloudinary").v2;
 
 cloudinary.config({
-    cloud_name: "ddc3epubs",
-    api_key: "433914787825219",
-    api_secret: "J0gZRtPMMvc70LUC9QNTlgpBNjI",
-});
+    cloud_name: "dbdag1blc",
+    api_key: "981943824214143",
+    api_secret: "Hf5F9FfHFBxdjMEXydLlhCGhP2w",
+  });
 
 
 class CategoryController {
